@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/55586cb8ce.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <main id="container">
+      <h1 id="main-title">Tarefas</h1>
+      <section id="add-task">
+        <form id="task-form">
+          <label for="task-idea">Adicione sua tarefa</label>
+          <input
+            type="text"
+            name="task"
+            id="task-idea"
+            placeholder="O que você vai fazer?"
+          />
+          <div class="input-with-icon">
+            <input type="submit" value="" />
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </form>
+      </section>
+      <section id="filters-and-tasks">
+        <form id="search-form">
+          <label for="search">Pesquisar:</label>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Buscar..."
+          />
+          <div class="input-with-icon">
+            <input type="submit" value="" />
+            <i class="fa-solid fa-delete-left"></i>
+          </div>
+        </form>
+
+        <div id="dropdown">
+          <label for="filter">Filtrar:</label>
+          <select name="filter" id="filter">
+            <option value="todos">Todas</option>
+            <option value="feitos">Feitas</option>
+            <option value="a Fazer">A Fazer</option>
+          </select>
+        </div>
+      </section>
+
+      <ul id="tasks-list">
+        <!-- <li class="task">
+          <p>Ir ao mercado</p>
+          <div class="task-inputs">
+            <button id="done-btn"><i class="fa-solid fa-check"></i></button>
+            <button id="edit-btn">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button id="delete-btn"><i class="fa-solid fa-x"></i></button>
+          </div>
+        </li> -->
+      </ul>
+    </main>
+  </body>
+</html>
