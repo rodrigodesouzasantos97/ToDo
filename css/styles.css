@@ -25,177 +25,119 @@ ul {
   list-style: none;
 }
 
-#container {
+#container{
   background-color: var(--main-container-color);
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   width: 500px;
 }
 
-#main-title {
-  text-align: center;
-  font-size: 2.5rem;
-}
-
-#main-title,
-#add-task,
-#tasks-list {
-  margin: 1rem 0;
+#main-title, 
+#task-form,
+#edit-form,
+#toolbar,
+.todo{
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 2rem;
+  padding: 1rem 0;
 }
 
-#task-form label,
-#search-form label,
-#dropdown label,
-#edit-task-form label {
-  display: block;
+#main-title{
+  text-align: center;
+  font-size: 45px;
+}
+
+#task-form p,
+#edit-form p,
+#search-form h4,
+#dropdown h4{
   margin-bottom: 0.5rem;
+  font-weight: normal;
 }
 
-.input-with-icon{
-  position: relative;
-  display: inline-block;
-}
-
-.input-with-icon i{
-  position: absolute;
-  left: 4.7px;
-  top: 25%;
-  pointer-events: none;
-}
-
-#task-form input,
-#edit-task-form input {
-  margin-right: 0.5rem;
-  height: 30px;
+#task-form-input,
+#task-form-submit-btn,
+#edit-form-input, 
+#edit-form-submit-btn,
+#edit-form-cancel-btn,
+#search-input,
+#search-erase-btn,
+#filter,
+.todo-btns button{
+  height: 25px;
   width: 200px;
-  padding: 0.5rem;
-  border-radius: 5px;
+  padding: 2px 5px;
 }
 
-#task-form input[type="submit"],
-#edit-task-form input[type="submit"] {
-  width: 30px;
+#task-form-submit-btn,
+#edit-form-submit-btn,
+#edit-form-cancel-btn,
+#search-erase-btn,
+.todo-btns button{
+  width: 35px;
   padding: 0;
   background-color: var(--main-container-color);
-  cursor: pointer;
+  border-radius: 5px;
   border-color: var(--input-border-color);
+  transition: 0.4s;
 }
 
-#task-form input[type="submit"]:hover,
-#edit-task-form input[type="submit"]:hover {
+#edit-form-cancel-btn,
+#filter{
+  width: 90px;
+}
+
+#task-form-submit-btn:hover,
+#edit-form-submit-btn:hover,
+#edit-form-cancel-btn:hover,
+#search-erase-btn:hover,
+.todo-btns button:hover{
   background-color: var(--input-hover-color);
+  color: var(--main-container-color);
 }
 
-#filters-and-tasks {
-  margin: 1rem 0;
+i{
+  margin-top: 2px;
+}
+
+#edit-form-cancel-btn{
+  display: block;
+  margin-top: 1rem;
+}
+
+#toolbar{
   display: flex;
 }
 
-#search-form {
-  margin-right: 1rem;
+#search-form{
   border-right: 1px solid var(--border-color);
-  padding-right: 1rem;
+  padding-right: 3.4rem;
+  margin-right: 3.4rem;
 }
 
-#search-form .input-with-icon i{
-  left: 10px;
-}
-
-#search-form input {
-  margin-right: 0.5rem;
-  height: 30px;
-  width: 190px;
-  padding: 0.5rem;
-  border-radius: 5px;
-}
-
-#search-form input[type="submit"] {
-  width: 40px;
-  padding: 0;
-  background-color: var(--main-container-color);
-  cursor: pointer;
-  border-color: var(--input-border-color);
-}
-
-#search-form input[type="submit"]:hover {
-  background-color: var(--input-hover-color);
-}
-
-#dropdown {
-  margin-left: 0.5rem;
-}
-
-#filter {
-  height: 30px;
-  width: 100px;
-  padding-left: 0.5rem;
-  font-size: 100%;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#tasks-list {
-  padding: 0;
-}
-
-.task {
+.todo{
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-top: 1px solid var(--border-color);
   gap: 1rem;
 }
 
-.task-inputs {
+.todo h3{
+  font-weight: normal;
+  font-size: 15px;
+  width: 65%;
+}
+
+.todo-btns{
   display: flex;
   gap: 0.5rem;
 }
 
-.task-inputs button {
-  width: 35px;
-  height: 30px;
-  background-color: var(--main-container-color);
-  border-color: var(--input-border-color);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.task-inputs button:hover {
-  background-color: var(--input-hover-color);
-}
-
-.done {
+.done{
   background-color: var(--background-color);
   color: var(--main-container-color);
+  text-decoration: line-through; 
 }
 
-.done p {
-  text-decoration: line-through;
-}
-
-#edit-task{
-  padding-bottom: 2rem;
-  margin: 1rem 0;
-  border-bottom: 1px solid var(--border-color);
+.hide{
   display: none;
-}
-
-#edit-task button{
-  margin-top: 1rem;
-  width: 80px;
-  height: 30px;
-  background-color: var(--main-container-color);
-  border-color: var(--input-border-color);
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-#edit-task button:hover{
-  background-color: var(--input-hover-color);
 }

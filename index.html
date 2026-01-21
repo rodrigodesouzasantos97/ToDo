@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -19,71 +19,71 @@
   </head>
   <body>
     <main id="container">
-      <h1 id="main-title">Tarefas</h1>
-      <section id="add-task">
-        <form id="task-form">
-          <label for="task-idea">Adicione sua tarefa:</label>
-          <input
-            type="text"
-            name="task"
-            id="task-idea"
-            placeholder="O que você vai fazer?"
-          />
-          <div class="input-with-icon">
-            <input type="submit" value="" />
-            <i class="fa-solid fa-plus"></i>
-          </div>
-        </form>
-      </section>
-      <section id="filters-and-tasks">
+      <header>
+        <h1 id="main-title">Tarefas</h1>
+      </header>
+      <form id="task-form">
+        <p>Adicione sua tarefa:</p>
+        <input
+          type="text"
+          id="task-form-input"
+          placeholder="O que você vai fazer?"
+        />
+        <button id="task-form-submit-btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </form>
+
+      <form id="edit-form" class="hide">
+        <p>Edite sua tarefa:</p>
+        <input type="text" id="edit-form-input" />
+        <button id="edit-form-submit-btn">
+          <i class="fa-solid fa-check-double"></i>
+        </button>
+        <button id="edit-form-cancel-btn">Cancelar</button>
+      </form>
+
+      <div id="toolbar">
         <form id="search-form">
-          <label for="search">Pesquisar:</label>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Buscar..."
-          />
-          <div class="input-with-icon">
-            <input type="submit" value="" />
+          <h4>Pesquisar:</h4>
+          <input type="text" id="search-input" placeholder="Buscar..." />
+          <button id="search-erase-btn">
             <i class="fa-solid fa-delete-left"></i>
-          </div>
+          </button>
         </form>
 
         <div id="dropdown">
-          <label for="filter">Filtrar:</label>
-          <select name="filter" id="filter">
-            <option value="todos">Todas</option>
-            <option value="feitos">Feitas</option>
-            <option value="a Fazer">A Fazer</option>
+          <h4>Filtrar:</h4>
+          <select id="filter">
+            <option value="all">Todas</option>
+            <option value="done">Feitas</option>
+            <option value="todo">A Fazer</option>
           </select>
         </div>
-      </section>
+      </div>
 
-      <ul id="tasks-list">
-        <!-- <li class="task">
-          <p>Ir ao mercado</p>
-          <div class="task-inputs">
-            <button id="done-btn"><i class="fa-solid fa-check"></i></button>
-            <button id="edit-btn">
+      <ul id="todo-list">
+        <!-- <li class="todo">
+          <h3>Ir ao mercado</h3>
+          <div class="todo-btns">
+            <button class="done-btn"><i class="fa-solid fa-check"></i></button>
+            <button class="edit-btn">
               <i class="fa-regular fa-pen-to-square"></i>
             </button>
-            <button id="delete-btn"><i class="fa-solid fa-x"></i></button>
+            <button class="remove-btn"><i class="fa-solid fa-x"></i></button>
+          </div>
+        </li>
+        <li class="todo">
+          <h3>Levar a cachorra para andar</h3>
+          <div class="todo-btns">
+            <button class="done-btn"><i class="fa-solid fa-check"></i></button>
+            <button class="edit-btn">
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button class="remove-btn"><i class="fa-solid fa-x"></i></button>
           </div>
         </li> -->
       </ul>
-
-      <section id="edit-task">
-        <form id="edit-task-form">
-          <label for="edit">Edite sua tarefa:</label>
-          <input type="text" name="edit" />
-          <div class="input-with-icon">
-            <input type="submit" value="" />
-            <i class="fa-solid fa-check-double"></i>
-          </div>
-        </form>
-        <button>Cancelar</button>
-      </section>
     </main>
   </body>
 </html>
