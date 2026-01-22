@@ -25,6 +25,35 @@ ul {
   list-style: none;
 }
 
+input{
+  height: 25px;
+  width: 200px;
+  padding: 2px 5px;
+}
+
+button{
+  height: 25px;
+  width: 35px;
+  background-color: var(--main-container-color);
+  border-radius: 5px;
+  border-color: var(--input-border-color);
+  transition: 0.4s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover{
+  background-color: var(--input-hover-color);
+  color: var(--main-container-color);
+}
+
+.input-and-button{
+  display: flex;
+  gap: 1rem;
+}
+
 #container{
   background-color: var(--main-container-color);
   padding: 1rem;
@@ -51,55 +80,11 @@ ul {
 #search-form h4,
 #dropdown h4{
   margin-bottom: 0.5rem;
-  font-weight: normal;
-}
-
-#task-form-input,
-#task-form-submit-btn,
-#edit-form-input, 
-#edit-form-submit-btn,
-#edit-form-cancel-btn,
-#search-input,
-#search-erase-btn,
-#filter,
-.todo-btns button{
-  height: 25px;
-  width: 200px;
-  padding: 2px 5px;
-}
-
-#task-form-submit-btn,
-#edit-form-submit-btn,
-#edit-form-cancel-btn,
-#search-erase-btn,
-.todo-btns button{
-  width: 35px;
-  padding: 0;
-  background-color: var(--main-container-color);
-  border-radius: 5px;
-  border-color: var(--input-border-color);
-  transition: 0.4s;
-}
-
-#edit-form-cancel-btn,
-#filter{
-  width: 90px;
-}
-
-#task-form-submit-btn:hover,
-#edit-form-submit-btn:hover,
-#edit-form-cancel-btn:hover,
-#search-erase-btn:hover,
-.todo-btns button:hover{
-  background-color: var(--input-hover-color);
-  color: var(--main-container-color);
-}
-
-i{
-  margin-top: 2px;
+  font-weight: bold;
 }
 
 #edit-form-cancel-btn{
+  width: 90px;
   display: block;
   margin-top: 1rem;
 }
@@ -110,8 +95,20 @@ i{
 
 #search-form{
   border-right: 1px solid var(--border-color);
-  padding-right: 3.4rem;
-  margin-right: 3.4rem;
+  padding-right: 2.75rem;
+  margin-right: 2.75rem;
+}
+
+#dropdown{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+#filter{
+  height: 25px;
+  text-align: center;
 }
 
 .todo{
@@ -134,8 +131,13 @@ i{
 
 .done{
   background-color: var(--background-color);
+  transition: 0.4s;
+}
+
+.done h3{
   color: var(--main-container-color);
   text-decoration: line-through; 
+  font-style: italic;
 }
 
 .hide{
