@@ -25,13 +25,13 @@ ul {
   list-style: none;
 }
 
-input{
+input {
   height: 25px;
   width: 200px;
   padding: 2px 5px;
 }
 
-button{
+button {
   height: 25px;
   width: 35px;
   background-color: var(--main-container-color);
@@ -44,33 +44,37 @@ button{
   align-items: center;
 }
 
-button:hover{
+button:hover {
   background-color: var(--input-hover-color);
   color: var(--main-container-color);
 }
 
-.input-and-button{
+i {
+  pointer-events: none;
+}
+
+.input-and-button {
   display: flex;
   gap: 1rem;
 }
 
-#container{
+#container {
   background-color: var(--main-container-color);
   padding: 1rem;
   border-radius: 10px;
   width: 500px;
 }
 
-#main-title, 
+#main-title,
 #task-form,
 #edit-form,
 #toolbar,
-.todo{
+.todo {
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 0;
 }
 
-#main-title{
+#main-title {
   text-align: center;
   font-size: 45px;
 }
@@ -78,68 +82,68 @@ button:hover{
 #task-form p,
 #edit-form p,
 #search-form h4,
-#dropdown h4{
+#dropdown h4 {
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
 
-#edit-form-cancel-btn{
+#edit-form-cancel-btn {
   width: 90px;
   display: block;
   margin-top: 1rem;
 }
 
-#toolbar{
+#toolbar {
   display: flex;
 }
 
-#search-form{
+#search-form {
   border-right: 1px solid var(--border-color);
   padding-right: 2.75rem;
   margin-right: 2.75rem;
 }
 
-#dropdown{
+#dropdown {
   display: flex;
   flex-direction: column;
   flex: 1;
   margin-right: 0.5rem;
 }
 
-#filter{
+#filter {
   height: 25px;
   text-align: center;
 }
 
-.todo{
+.todo {
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
 }
 
-.todo h3{
+.todo h3 {
   font-weight: normal;
   font-size: 15px;
   width: 65%;
 }
 
-.todo-btns{
+.todo-btns {
   display: flex;
   gap: 0.5rem;
 }
 
-.done{
+.done {
   background-color: var(--background-color);
   transition: 0.4s;
 }
 
-.done h3{
+.done h3 {
   color: var(--main-container-color);
-  text-decoration: line-through; 
+  text-decoration: line-through;
   font-style: italic;
 }
 
-.hide{
+#container .hide {
   display: none;
 }
