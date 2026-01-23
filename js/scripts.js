@@ -7,6 +7,9 @@ const toolbar = document.querySelector("#toolbar");
 const editFormInput = document.querySelector("#edit-form-input");
 const editFormSubmitBtn = document.querySelector("#edit-form-submit-btn");
 const editFormCancelBtn = document.querySelector("#edit-form-cancel-btn");
+const searchInput = document.querySelector("#search-input");
+const searchEraseBtn = document.querySelector("#search-erase-btn");
+const filter = document.querySelector("#filter");
 
 let lastTodoText;
 
@@ -67,6 +70,48 @@ function updateTodo(text) {
   });
 }
 
+function searchValue(value) {
+  const allTodo = document.querySelectorAll(".todo");
+
+  allTodo.forEach((todo) => {
+    const todoText = todo.querySelector("h3").innerText.toLowerCase();
+    const valueInLowerCase = value.toLowerCase();
+
+    todo.classList.remove("hide");
+
+    if (!todoText.includes(valueInLowerCase)) {
+      todo.classList.add("hide");
+    }
+  });
+}
+
+function filterTodos(filterValue) {
+  const allTodo = document.querySelectorAll(".todo");
+
+  allTodo.forEach((todo) => {
+    if (todo.classList.contains("hide")) todo.classList.remove("hide");
+  });
+
+  switch (filterValue) {
+    case "done":
+      allTodo.forEach((todo) => {
+        if (!todo.classList.contains("done"))
+          if (!todo.classList.contains("hide")) todo.classList.add("hide");
+      });
+      break;
+
+    case "todo":
+      allTodo.forEach((todo) => {
+        if (todo.classList.contains("done"))
+          if (!todo.classList.contains("hide")) todo.classList.add("hide");
+      });
+      break;
+
+    default:
+      break;
+  }
+}
+
 document.addEventListener("click", (e) => {
   const targetParent = e.target.parentElement;
   const father = targetParent.parentElement;
@@ -100,4 +145,20 @@ editFormCancelBtn.addEventListener("click", (e) => {
 editFormSubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   updateTodo(editFormInput.value);
+});
+
+searchInput.addEventListener("keyup", (e) => {
+  e.preventDefault();
+  searchValue(e.target.value);
+});
+
+searchEraseBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  searchInput.value = "";
+  searchInput.dispatchEvent(new Event("keyup"));
+});
+
+filter.addEventListener("change", (e) => {
+  const filterValue = e.target.value;
+  filterTodos(filterValue);
 });
