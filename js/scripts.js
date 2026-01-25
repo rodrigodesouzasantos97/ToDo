@@ -13,7 +13,7 @@ const filter = document.querySelector("#filter");
 
 let lastTodoText;
 
-function createTodo(text) {
+function createTodo(text, done = 0, save = 1) {
   const textIsNullOrEmpty = !text.trim();
 
   if (textIsNullOrEmpty) return;
@@ -44,6 +44,10 @@ function createTodo(text) {
   div.appendChild(removeButton);
   removeButton.innerHTML = '<i class="fa-solid fa-x"></i>';
 
+  if (done) li.classList.add("done");
+
+  if (save) saveTodoLocalStorage({ text, done });
+
   todoList.appendChild(li);
 
   taskFormInput.value = "";
@@ -66,6 +70,7 @@ function updateTodo(text) {
     if (todoText.innerText === lastTodoText) {
       todoText.innerText = text;
       toggleScreens();
+      updateTodoTextLocalStorage(lastTodoText, text);
     }
   });
 }
@@ -117,18 +122,22 @@ document.addEventListener("click", (e) => {
   const father = targetParent.parentElement;
 
   if (e.target.classList.contains("done-btn")) {
+    const todoText = father.querySelector("h3").innerText;
     father.classList.toggle("done");
+    updateTodoStatusLocalStorage(todoText);
   }
 
   if (e.target.classList.contains("edit-btn")) {
-    const todoText = father.querySelector("h3");
+    const todoText = father.querySelector("h3").innerText;
     toggleScreens();
-    editFormInput.value = todoText.innerText;
-    lastTodoText = todoText.innerText;
+    editFormInput.value = todoText;
+    lastTodoText = todoText;
   }
 
   if (e.target.classList.contains("remove-btn")) {
+    const todoText = father.querySelector("h3").innerText;
     father.remove();
+    removeTodoLocalStorage(todoText);
   }
 });
 
@@ -162,3 +171,50 @@ filter.addEventListener("change", (e) => {
   const filterValue = e.target.value;
   filterTodos(filterValue);
 });
+
+// Local Storage
+function getTodosLocalStorage() {
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  return todos;
+}
+
+function setTodosLocalStorage(todos) {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function loadTodos() {
+  const todos = getTodosLocalStorage();
+  todos.forEach((todo) => {
+    createTodo(todo.text, todo.done, 0);
+  });
+}
+
+function saveTodoLocalStorage(todo) {
+  const todos = getTodosLocalStorage();
+  todos.push(todo);
+  setTodosLocalStorage(todos);
+}
+
+function removeTodoLocalStorage(todoText) {
+  const todos = getTodosLocalStorage();
+  const filteredTodos = todos.filter((todo) => todo.text !== todoText);
+  setTodosLocalStorage(filteredTodos);
+}
+
+function updateTodoStatusLocalStorage(todoText) {
+  const todos = getTodosLocalStorage();
+  todos.map((todo) =>
+    todo.text === todoText ? (todo.done = !todo.done) : null,
+  );
+  setTodosLocalStorage(todos);
+}
+
+function updateTodoTextLocalStorage(lastTodoText, newTodoText) {
+  const todos = getTodosLocalStorage();
+  todos.map((todo) =>
+    todo.text === lastTodoText ? (todo.text = newTodoText) : null,
+  );
+  setTodosLocalStorage(todos);
+}
+
+loadTodos();
